@@ -33,4 +33,8 @@ export class TasksComponent implements OnInit {
           (this.tasks = this.tasks.map((t) => (t.id === task.id ? task : t)))
       );
   };
+
+  addTask = (task: Task) => {
+    this.taskService.addTask(task).subscribe(() => this.tasks.push(task));
+  };
 }
